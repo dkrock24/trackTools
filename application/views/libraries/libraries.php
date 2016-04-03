@@ -113,7 +113,7 @@
                                                 </td>
                                                 <td class=" "><?php   echo $libraries[$contador]->versionLibrary; ?></td>
                                                 <td class=" "><?php   echo $libraries[$contador]->linkLibrary; ?></td>
-                                                <td class="a-right a-right "><?php   echo $libraries[$contador]->idLanguages; ?></td>
+                                                <td class="a-right a-right "><?php   echo $libraries[$contador]->nameLanguage; ?></td>
                                                 <td class="a-right a-right "><?php   echo $libraries[$contador]->stateLibrary; ?></td>
 
                                                 <td class=" last"><a href="#">View</a>

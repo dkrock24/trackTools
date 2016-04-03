@@ -13,7 +13,7 @@
                 $('.enlace2').click(function(){
                   var enlace2 = $(this).attr("id"); 
                   //alert(enlace2)                 ;
-                  $('.pages').load("../Cteam/"+enlace2);
+                  $('.pages').load("../Cpositions/"+enlace2);
                 });
 
             });
@@ -68,7 +68,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Teams <small>List</small></h2>
+                                    <h2>Positions <small>List</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li>
                                           <a class="enlace2" href="#" id="teamAdd"><i class="glyphicon glyphicon-plus"> </i>Add</a>
@@ -86,8 +86,8 @@
                                                     <input type="checkbox" class="tableflat">
                                                 </th>
                                                 <th>Name </th>
-                                                <th>Owner </th>
-                                                <th>Description </th>                                               
+                                                <th>Short Name </th>
+                                                <th>Departament </th>                                                                                               
                                                 <th class=" no-link last"><span class="nobr">Action</span>
                                                 </th>
                                             </tr>
@@ -96,17 +96,17 @@
                                         <tbody>
                                           <?php
                                           $contador=0;
-                                          foreach ($team as $value)
-                                          {
+                                          
+                                          foreach ($positions as $value)
+                                          {                                            
                                             ?>
                                             <tr class="even pointer">
                                                 <td class="a-center ">
                                                     <input type="checkbox" class="tableflat">
                                                 </td>
-                                                <td class=" "><?php   echo $team[$contador]->nameQ; ?></td>
-                                                <td class=" "><?php   echo $team[$contador]->nickname; ?></td>
-                                                <td class=" "><?php   echo $team[$contador]->descriptionQ; ?></i></td>
-                                                
+                                                <td class=" "><?php   echo $positions[$contador]->namePosition; ?></td>
+                                                <td class=" "><?php   echo $positions[$contador]->shortNamePosition; ?></td>
+                                                <td class=" "><?php   echo $positions[$contador]->NameDepartamentPosition; ?></i></td>                                                
                                                 <td class=" last"><a href="#">View</a>
                                                 </td>
                                             </tr>

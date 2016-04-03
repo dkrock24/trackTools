@@ -113,7 +113,7 @@
                                                 </td>
                                                 <td class=" "><?php   echo $lenguages[$contador]->versionFramework; ?></td>
                                                 <td class=" "><?php   echo $lenguages[$contador]->linkFramework; ?></td>
-                                                <td class="a-right a-right "><?php   echo $lenguages[$contador]->LenguageFramework; ?></td>
+                                                <td class="a-right a-right "><?php   echo $lenguages[$contador]->nameLanguage; ?></td>
                                                 <td class="a-right a-right "><?php   echo $lenguages[$contador]->stateFramework; ?></td>
 
                                                 <td class=" last"><a href="#">View</a>

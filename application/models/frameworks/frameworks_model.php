@@ -13,6 +13,7 @@ class frameworks_model extends CI_Model
 
         $this->db->select('*');
         $this->db->from($table);
+        $this->db->join('track_languages_programing as LP','track_language_framework.LenguageFramework = LP.idLanguages');
 
         $query = $this->db->get();
         if($query->num_rows() > 0 )

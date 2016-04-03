@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 session_start();
-class Welcome extends CI_Controller {
+class Cusers extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,15 +22,28 @@ class Welcome extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('conecction/consultas_model');
-				$this->load->model('conecction/servers_model');
+        $this->load->model('users/users_model');		
         $this->load->helper('url');
         $this->load->database('default');
     }
-	public function index()
+	public function usersView()
 	{
-		$this->load->view('home.php');
+
+		$users['users'] = $this->users_model->allUsers('track_users');
+		
+		$this->load->view('users/users.php', $users);
 	}
+
+	public function usersAdd(){
+		$this->load->view('users/addUsers.php');
+	}
+
+
+
+
+
+
+
 	public function login()
 	{
 		$this->load->view('login/login.html');
@@ -108,7 +121,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('index.php');
 	}
 
-
 	public function home(){
 		if(!$_SESSION)
 		{
@@ -152,8 +164,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('servers/Servers.php',$dataServer);
 	}
 
-	public function addServer(){
-		$this->load->view('servers/addServer.php');
-	}
+	
 
 }

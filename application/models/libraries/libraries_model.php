@@ -13,6 +13,7 @@ class libraries_model extends CI_Model
 
         $this->db->select('*');
         $this->db->from($table);
+        $this->db->join("track_languages_programing as languages","languages.idLanguages = track_library.idLanguages");
 
         $query = $this->db->get();
         if($query->num_rows() > 0 )
