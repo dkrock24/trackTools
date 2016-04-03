@@ -13,7 +13,7 @@
                 $('.enlace2').click(function(){
                   var enlace2 = $(this).attr("id"); 
                   //alert(enlace2)                 ;
-                  $('.pages').load("../Cusers/"+enlace2);
+                  $('.pages').load("../Cdomains/"+enlace2);
                 });
 
             });
@@ -68,7 +68,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Users <small>List</small></h2>
+                                    <h2>Domains <small>List</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li>
                                           <a class="enlace2" href="#" id="teamAdd"><i class="glyphicon glyphicon-plus"> </i>Add</a>
@@ -85,15 +85,10 @@
                                                 <th>
                                                     <input type="checkbox" class="tableflat">
                                                 </th>
-                                                <th>First Name </th>
-                                                <th>Last Name </th>
-                                                <th>Nickname </th>                                               
-                                                <th>VHUR </th>
-                                                <th>Team </th>
-                                                <th>Rol </th>
-                                                <th>Position </th>
-                                                <th>Domain </th>
-                                                <th>Supervisor </th>
+                                                <th>Domain Name </th>
+                                                <th>Short Name</th>
+                                                <th>State </th>                                               
+                                               
                                                 <th class=" no-link last"><span class="nobr">Action</span>
                                                 </th>
                                             </tr>
@@ -103,23 +98,17 @@
                                           <?php
                                           $contador=0;
                                           
-                                          foreach ($users as $value)
+                                          foreach ($domain as $value)
                                           {                                            
                                             ?>
                                             <tr class="even pointer">
                                                 <td class="a-center ">
                                                     <input type="checkbox" class="tableflat">
                                                 </td>
-                                                <td class=" "><?php   echo $users[$contador]->firstName; ?></td>
-                                                <td class=" "><?php   echo $users[$contador]->LastName; ?></td>
-                                                <td class=" "><?php   echo $users[$contador]->nickname; ?></i></td>
-                                                <td class=" "><?php   echo $users[$contador]->vhur; ?></i></td>
-                                                <td class=" "><?php   echo $users[$contador]->nameQ; ?></i></td>
-                                                <td class=" "><?php   echo $users[$contador]->name_rol; ?></i></td>
-                                                <td class=" "><?php   echo $users[$contador]->namePosition; ?></i></td>
-                                                <td class=" "><?php   echo $users[$contador]->shortNameDomain; ?></i></td>
-                                                <td class=" "><?php   echo $users[$contador]->SuperV; ?></i></td>
-                                                
+                                                <td class=" "><?php   echo $domain[$contador]->nameDomain; ?></td>
+                                                <td class=" "><?php   echo $domain[$contador]->shortNameDomain; ?></td>
+                                                <td class=" "><?php   echo $domain[$contador]->stateDomain; ?></i></td>
+                                                                                               
                                                 
                                                 <td class=" last"><a href="#">View</a>
                                                 </td>
