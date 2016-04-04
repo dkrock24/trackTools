@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 session_start();
-class Welcome extends CI_Controller {
+class Cshortcut extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,16 +22,40 @@ class Welcome extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('conecction/consultas_model');
-				$this->load->model('conecction/servers_model');
+        $this->load->model('shortcut/shortcut_model');		
         $this->load->helper('url');
         $this->load->database('default');
     }
-	public function index()
+	public function shortcutView()
 	{
-		
-		$this->load->view('home.php');
+		$shortcut['shortcut'] = $this->shortcut_model->allShortcut('track_shortcut');		
+		$this->load->view('shortcut/shortcut.php', $shortcut);
 	}
+
+	public function shortcutAdd(){
+		$this->load->helper('form');
+		$this->load->view('shortcut/addShortcut.php');		
+		
+	}
+
+	public function shortcutNew(){
+		$this->shortcut_model->insert('track_shortcut',$_POST);
+		
+		/*
+		$data = $_POST;
+		foreach ($data as $value) {
+			echo $value;
+		}*/
+		echo $texto = "Yes";
+		return $texto;
+	}
+
+
+
+
+
+
+
 	public function login()
 	{
 		$this->load->view('login/login.html');
@@ -109,7 +133,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('index.php');
 	}
 
-
 	public function home(){
 		if(!$_SESSION)
 		{
@@ -135,7 +158,6 @@ class Welcome extends CI_Controller {
 
 	public function pageHome(){
 		$developer 	= $this->consultas_model->developerCount('track_users');
-		$name['shortcut'] = $this->consultas_model->shortCut('track_shortcut');
 		$name['developer'] 	= $developer;
 		$this->load->view('home.php',$name);
 	}
@@ -154,8 +176,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('servers/Servers.php',$dataServer);
 	}
 
-	public function addServer(){
-		$this->load->view('servers/addServer.php');
-	}
+	
 
 }

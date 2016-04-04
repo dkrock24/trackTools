@@ -147,6 +147,17 @@ class Consultas_model extends CI_Model
         $this->db->update('users', $data);
     }
 
+    public function shortCut($table){
+        $this->db->select('*');
+        $this->db->from($table);          
+        
+        $query = $this->db->get();
+        if($query->num_rows() > 0 )
+        {
+            return $query->result();
+        }
+    }
+
 }
 /*
  * end of application/models/consultas_model.php

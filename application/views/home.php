@@ -18,6 +18,28 @@
         <div class="form-group">
             <div class="items-collection">
 
+            <?php
+            $contador=0;
+            foreach ($shortcut as $value) {
+                ?>
+                <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="info-block block-info clearfix">
+                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                            <label class="btn btn-default">
+                                <div class="itemcontent">
+                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                    <span class="fa fa-car fa-2x"></span>
+                                    <h5><?php   echo $shortcut[$contador]->nameShortCut; ?></h5>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                $contador++;
+            }
+            ?>
+
                 <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
                     <div class="info-block block-info clearfix">
                         <div data-toggle="buttons" class="btn-group bizmoduleselect">

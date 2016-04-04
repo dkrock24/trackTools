@@ -18,4 +18,16 @@ $(document).ready(function(){
 		$(".pages").load(link);
 	});
 	*/
+	function demo(){
+		
+	}
+	function alertSuccess(redirect){
+		setTimeout(function(){ 
+		//var enlace2;
+        //alert(enlace2);
+        	$('.pages').load(redirect);
+		}, 2000);
+	}
+
 });
+

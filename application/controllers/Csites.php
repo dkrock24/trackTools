@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 session_start();
-class Welcome extends CI_Controller {
+class Csites extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,16 +22,26 @@ class Welcome extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('conecction/consultas_model');
-				$this->load->model('conecction/servers_model');
+        $this->load->model('sites/sites_model');		
         $this->load->helper('url');
         $this->load->database('default');
     }
-	public function index()
+	public function sitesView()
 	{
-		
-		$this->load->view('home.php');
+		$sites['sites'] = $this->sites_model->allSites('track_domain_site');		
+		$this->load->view('sites/sites.php', $sites);
 	}
+
+	public function sitesAdd(){
+		$this->load->view('sites/addSites.php');
+	}
+
+
+
+
+
+
+
 	public function login()
 	{
 		$this->load->view('login/login.html');
@@ -109,7 +119,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('index.php');
 	}
 
-
 	public function home(){
 		if(!$_SESSION)
 		{
@@ -135,7 +144,6 @@ class Welcome extends CI_Controller {
 
 	public function pageHome(){
 		$developer 	= $this->consultas_model->developerCount('track_users');
-		$name['shortcut'] = $this->consultas_model->shortCut('track_shortcut');
 		$name['developer'] 	= $developer;
 		$this->load->view('home.php',$name);
 	}
@@ -154,8 +162,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('servers/Servers.php',$dataServer);
 	}
 
-	public function addServer(){
-		$this->load->view('servers/addServer.php');
-	}
+	
 
 }
