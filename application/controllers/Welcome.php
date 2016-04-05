@@ -22,8 +22,8 @@ class Welcome extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('conecction/consultas_model');
-				$this->load->model('conecction/servers_model');
+        $this->load->model('conecction/Consultas_model');
+				$this->load->model('conecction/Servers_model');
         $this->load->helper('url');
         $this->load->database('default');
     }
@@ -57,25 +57,25 @@ class Welcome extends CI_Controller {
 	        switch ($domain)
 	        {
 				case 'SV':
-	                //require('/adLDAP.php');
+	                require('/adLDAP.php');
 					break;
 
 				case 'TI':
-	                //require('/adLDAP_ti.php');
+	                require('/adLDAP_ti.php');
 					break;
 
 	            case 'GT':
 	                require('/adLDAP_gt.php');
 					break;
 			}
-			//$adldap = new adLDAP();
+			$adldap = new adLDAP();
 		}
 		catch (adLDAPException $e)
 		{
 			echo $e;
 			exit();
 		}
-		/*
+		
 		if($adldap->authenticate($username,$password))
 		{
 	    	//$password = 'admin123456';
@@ -83,6 +83,7 @@ class Welcome extends CI_Controller {
 	        try
 	        {
 	        	echo "yes - Autenticado";
+
 	        	$_SESSION['user']=$username;
 	        	header('Location: '.'home');
 	        	//redirect('home');
@@ -99,14 +100,13 @@ class Welcome extends CI_Controller {
 	    }
 	    else
 	    {//if adldap
-				header('Location: '.'home');
+			header('Location: '.'login');
 	        echo "Fail Global";
 	   	}
- 			exit();
-			*/
+
 			$_SESSION['user']=$username;
-			header('Location: '.'home');
-		$this->load->view('index.php');
+			//header('Location: '.'login');
+		//$this->load->view('index.php');
 	}
 
 
@@ -116,10 +116,10 @@ class Welcome extends CI_Controller {
 			header('Location: '.'logout');
 		}
 		$data = array();
-		$data 		= $this->consultas_model->users_entrys('track_config');
-		$user 		= $this->consultas_model->users($_SESSION['user'],'track_users');
-		$menu		= $this->consultas_model->menu();
-		$subMenu	= $this->consultas_model->subMenu();
+		$data 		= $this->Consultas_model->users_entrys('track_config');
+		$user 		= $this->Consultas_model->users($_SESSION['user'],'track_users');
+		$menu		= $this->Consultas_model->menu();
+		$subMenu	= $this->Consultas_model->subMenu();
 
 
 		$name['name'] 	= $data[0]->system_name;
@@ -134,8 +134,8 @@ class Welcome extends CI_Controller {
 
 
 	public function pageHome(){
-		$developer 	= $this->consultas_model->developerCount('track_users');
-		$name['shortcut'] = $this->consultas_model->shortCut('track_shortcut');
+		$developer 	= $this->Consultas_model->developerCount('track_users');
+		$name['shortcut'] = $this->Consultas_model->shortCut('track_shortcut');
 		$name['developer'] 	= $developer;
 		$this->load->view('home.php',$name);
 	}
@@ -150,7 +150,7 @@ class Welcome extends CI_Controller {
 	}
 	public function servers()
 	{
-		$dataServer['servers'] 		= $this->servers_model->allServers('track_server');
+		$dataServer['servers'] 		= $this->Servers_model->allServers('track_server');
 		$this->load->view('servers/Servers.php',$dataServer);
 	}
 

@@ -22,13 +22,13 @@ class Cdomains extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('domain/domain_model');		
+        $this->load->model('domain/Domain_model');		
         $this->load->helper('url');
         $this->load->database('default');
     }
 	public function domainView()
 	{
-		$domain['domain'] = $this->domain_model->allDomain('track_domain');		
+		$domain['domain'] = $this->Domain_model->allDomain('track_domain');		
 		$this->load->view('domain/domain.php', $domain);
 	}
 

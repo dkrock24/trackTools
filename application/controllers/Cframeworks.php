@@ -22,13 +22,13 @@ class Cframeworks extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('frameworks/frameworks_model');		
+        $this->load->model('frameworks/Frameworks_model');		
         $this->load->helper('url');
         $this->load->database('default');
     }
 	public function frameworksView()
 	{
-		$lenguages['lenguages'] 		= $this->frameworks_model->allFrameworks('track_language_framework');
+		$lenguages['lenguages'] 		= $this->Frameworks_model->allFrameworks('track_language_framework');
 		$this->load->view('frameworks/frameworks.php', $lenguages);
 	}
 

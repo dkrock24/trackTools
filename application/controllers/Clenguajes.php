@@ -22,13 +22,13 @@ class Clenguajes extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('lenguajes/lenguajes_model');		
+        $this->load->model('lenguajes/Lenguajes_model');		
         $this->load->helper('url');
         $this->load->database('default');
     }
 	public function lenguajesView()
 	{
-		$lenguages['lenguages'] 		= $this->lenguajes_model->allLenguages('track_languages_programing');
+		$lenguages['lenguages'] 		= $this->Lenguajes_model->allLenguages('track_languages_programing');
 		$this->load->view('lenguajes/lenguajes.php', $lenguages);
 	}
 

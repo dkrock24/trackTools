@@ -22,13 +22,13 @@ class Cteams extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('team/team_model');		
+        $this->load->model('team/Team_model');		
         $this->load->helper('url');
         $this->load->database('default');
     }
 	public function teamView()
 	{
-		$team['team'] = $this->team_model->allTeam('track_team');
+		$team['team'] = $this->Team_model->allTeam('track_team');
 		$this->load->view('team/team.php', $team);
 	}
 

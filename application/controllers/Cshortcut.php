@@ -22,13 +22,13 @@ class Cshortcut extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('shortcut/shortcut_model');		
+        $this->load->model('shortcut/Shortcut_model');		
         $this->load->helper('url');
         $this->load->database('default');
     }
 	public function shortcutView()
 	{
-		$shortcut['shortcut'] = $this->shortcut_model->allShortcut('track_shortcut');		
+		$shortcut['shortcut'] = $this->Shortcut_model->allShortcut('track_shortcut');		
 		$this->load->view('shortcut/shortcut.php', $shortcut);
 	}
 
@@ -39,7 +39,7 @@ class Cshortcut extends CI_Controller {
 	}
 
 	public function shortcutNew(){
-		$this->shortcut_model->insert('track_shortcut',$_POST);
+		$this->Shortcut_model->insert('track_shortcut',$_POST);
 		
 		/*
 		$data = $_POST;

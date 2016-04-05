@@ -22,13 +22,13 @@ class Csites extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('sites/sites_model');		
+        $this->load->model('sites/Sites_model');		
         $this->load->helper('url');
         $this->load->database('default');
     }
 	public function sitesView()
 	{
-		$sites['sites'] = $this->sites_model->allSites('track_domain_site');		
+		$sites['sites'] = $this->Sites_model->allSites('track_domain_site');		
 		$this->load->view('sites/sites.php', $sites);
 	}
 

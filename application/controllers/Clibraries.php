@@ -22,13 +22,13 @@ class Clibraries extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('libraries/libraries_model');		
+        $this->load->model('libraries/Positions_model');		
         $this->load->helper('url');
         $this->load->database('default');
     }
 	public function librariesView()
 	{
-		$libraries['libraries'] = $this->libraries_model->allLibraries('track_library');
+		$libraries['libraries'] = $this->Positions_model->allLibraries('track_library');
 		$this->load->view('libraries/libraries.php', $libraries);
 	}
 

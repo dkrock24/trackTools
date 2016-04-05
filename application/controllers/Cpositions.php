@@ -22,14 +22,14 @@ class Cpositions extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('positions/positions_model');		
+        $this->load->model('positions/Positions_model');		
         $this->load->helper('url');
         $this->load->database('default');
     }
 	public function positionsView()
 	{
 
-		$positions['positions'] = $this->positions_model->allPositions('track_users_positions');
+		$positions['positions'] = $this->Positions_model->allPositions('track_users_positions');
 		
 		$this->load->view('positions/positions.php', $positions);
 	}
