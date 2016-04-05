@@ -1,6 +1,6 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class libraries_model extends CI_Model
+class Libraries_model extends CI_Model
 {
     public function __construct()
     {

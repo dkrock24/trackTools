@@ -22,14 +22,14 @@ class Cusers extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('users/users_model');		
+        $this->load->model('users/Users_model');		
         $this->load->helper('url');
         $this->load->database('default');
     }
 	public function usersView()
 	{
 
-		$users['users'] = $this->users_model->allUsers('track_users');
+		$users['users'] = $this->Users_model->allUsers('track_users');
 		
 		$this->load->view('users/users.php', $users);
 	}

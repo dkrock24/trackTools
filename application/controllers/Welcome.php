@@ -57,15 +57,15 @@ class Welcome extends CI_Controller {
 	        switch ($domain)
 	        {
 				case 'SV':
-	                require('/adLDAP.php');
+	                require('adLDAP.php');
 					break;
 
 				case 'TI':
-	                require('/adLDAP_ti.php');
+	                require('adLDAP_ti.php');
 					break;
 
 	            case 'GT':
-	                require('/adLDAP_gt.php');
+	                require('adLDAP_gt.php');
 					break;
 			}
 			$adldap = new adLDAP();
