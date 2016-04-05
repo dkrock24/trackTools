@@ -28,7 +28,7 @@
                             <label class="btn btn-default">
                                 <div class="itemcontent">
                                     <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                    <span class="fa fa-car fa-2x"></span>
+                                    <span class="fa <?php   echo $shortcut[$contador]->iconShortCut; ?> fa-2x"></span>
                                     <h5><?php   echo $shortcut[$contador]->nameShortCut; ?></h5>
                                 </div>
                             </label>
