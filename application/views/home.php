@@ -22,19 +22,24 @@
             $contador=0;
             foreach ($shortcut as $value) {
                 ?>
+                
                 <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
                     <div class="info-block block-info clearfix">
+                    	
                         <div data-toggle="buttons" class="btn-group bizmoduleselect">
                             <label class="btn btn-default">
                                 <div class="itemcontent">
                                     <input type="checkbox" name="var_id[]" autocomplete="off" value="">
                                     <span class="fa <?php   echo $shortcut[$contador]->iconShortCut; ?> fa-2x"></span>
+                                    <a href='<?php   echo $shortcut[$contador]->urlShortCut; ?>' target="_blank">
                                     <h5><?php   echo $shortcut[$contador]->nameShortCut; ?></h5>
+                                    </a>
                                 </div>
                             </label>
                         </div>
+                        
                     </div>
-                </div>
+                </div>                
                 <?php
                 $contador++;
             }
